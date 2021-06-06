@@ -88,36 +88,6 @@ try:
                             add_product_query = "INSERT INTO products (product_name) VALUES ('%s');" % (product_name)
                             cursor.execute(add_product_query)
                             connection.commit()
-                        # print('Do you want to add specs for this product?')
-                        # add_specs = int(input("Yes — 1\n"
-                        #                       "No — 2\n"))
-                        # if add_specs == 1:
-                        #     print("Fill in the fields\n"
-                        #           "Skip one of them by pressing ENTER\n")
-                        #     cpu = input("Type new products CPU: ")
-                        #     gpu = input("Type new products GPU: ")
-                        #     cpu_cores = input("Type new products CPU cores: ")
-                        #     ram = input("Type new products RAM: ")
-                        #     storage_type = input("Type new products storage type(SSD/HDD): ")
-                        #     storage_capacity = input("Type new products storage capacity(in Gb): ")
-                        #     display_size = input("Type new products display size: ")
-                        #     display_resolution = input("Type new products display resolution(AxB): ")
-                        #     year = input("Type production year: ")
-                        #     price = input("Type new products price(in USD): ")
-                        #     quantity = input("Type quantity in stock: ")
-                        #     stock = input("Is it in stock?(Yes-1, No-0): ")
-                        #     with connection.cursor() as cursor:
-                        #         add_client_query = "INSERT INTO product_specs (cpu, gpu, cpu_cores, ram, storage_type, storage_capacity, display_size, display_resolution, year) " \
-                        #                            "VALUES ('%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s') WHERE MAX(product_id);" % (
-                        #         cpu, gpu, cpu_cores, ram, storage_type, storage_capacity, display_size, display_resolution, year)
-                        #         cursor.execute(add_client_query)
-                        #     with connection.cursor() as cursor:
-                        #         add_product_query = "INSERT INTO product_store (price, quantity, stock) VALUES ('%s', '%s', '%s');" % (
-                        #             price, quantity, stock)
-                        #         cursor.execute(add_product_query)
-                        #         connection.commit()
-                        #         print('--Product succesfully added--')
-
                             print('--product succesfully added--')
                     elif products == 2:
                         print('--Delete product--')
@@ -187,23 +157,6 @@ try:
                             cursor.execute(add_order_query)
                             connection.commit()
                             print('--Order succesfully added--')
-
-                        # add_product_order = int(input("Do you want to add products to this order?\n"
-                        #                               "Yes — 1\n"
-                        #                               "No — 2\n"))
-                        # if add_product_order == 1:
-                        #     order_items_id = input("Type id ")
-                        #     order_product_id = input('What was ordered?(product ID): ')
-                        #     order_quantity = input('Quantity: ')
-                        #     order_sum = input('Sum: ')
-                        #     with connection.cursor() as cursor:
-                        #         add_order_query = "INSERT INTO order_items (product_id, quantity, Sum) VALUES ('%s', '%s', '%s');" % (
-                        #             order_product_id, order_quantity, order_sum)
-                        #         cursor.execute(add_order_query)
-                        #         connection.commit()
-                        #         print('--Products succesfully added to the order--')
-                        # elif add_product_order == 2:
-                        #     print('--Order succesfully added--')
                     elif orders == 2:
                         print('--Delete order--')
                         id_input = int(input("Type id of a order you want to delete: "))
@@ -410,69 +363,6 @@ try:
                 else:
                     print("--No such number, try again!--")
         first_menu_func()
-        # cursor = connection.cursor()
-
-        # create table
-        # with connection.cursor() as cursor:
-        #     create_table_query = "CREATE TABLE `users`(id int AUTO_INCREMENT," \
-        #                          " name varchar(32)," \
-        #                          " password varchar(32)," \
-        #                          " email varchar(32), PRIMARY KEY (id));"
-        #     cursor.execute(create_table_query)
-        #     print("Table created successfully")
-
-        # insert data
-        # with connection.cursor() as cursor:
-        #     insert_query = "INSERT INTO `users` (name, password, email) VALUES ('Anna', 'qwerty', 'anna@gmail.com');"
-        #     cursor.execute(insert_query)
-        #     connection.commit()
-
-        # with connection.cursor() as cursor:
-        #     insert_query = "INSERT INTO `users` (name, password, email) VALUES ('Victor', '123456', 'victor@gmail.com');"
-        #     cursor.execute(insert_query)
-        #     connection.commit()
-        #
-        # with connection.cursor() as cursor:
-        #     insert_query = "INSERT INTO `users` (name, password, email) VALUES ('Oleg', '112233', 'olegan@mail.ru');"
-        #     cursor.execute(insert_query)
-        #     connection.commit()
-
-        # with connection.cursor() as cursor:
-        #     insert_query = "INSERT INTO `users` (name, password, email) VALUES ('Oleg', 'kjlsdhfjsd', 'ole2gan@mail.ru');"
-        #     cursor.execute(insert_query)
-        #     connection.commit()
-        #
-        # with connection.cursor() as cursor:
-        #     insert_query = "INSERT INTO `users` (name, password, email) VALUES ('Oleg', '889922', 'olegan3@mail.ru');"
-        #     cursor.execute(insert_query)
-        #     connection.commit()
-
-        # update data
-        # with connection.cursor() as cursor:
-        #     update_query = "UPDATE `users` SET password = 'xxxXXX' WHERE name = 'Oleg';"
-        #     cursor.execute(update_query)
-        #     connection.commit()
-
-        # delete data
-        # with connection.cursor() as cursor:
-        #     delete_query = "DELETE FROM `users` WHERE id = 5;"
-        #     cursor.execute(delete_query)
-        #     connection.commit()
-
-        # drop table
-        # with connection.cursor() as cursor:
-        #     drop_table_query = "DROP TABLE `users`;"
-        #     cursor.execute(drop_table_query)
-
-        # select all data from table
-        # # with connection.cursor() as cursor:
-        #     select_all_rows = "SELECT *  FROM products AS pr JOIN product_specs AS ps ON pr.product_id=ps.product_id"
-        #     cursor.execute(select_all_rows)
-        #     # cursor.execute("SELECT * FROM `users`")
-        #     rows = cursor.fetchall()
-        #     for row in rows:
-        #         print(row)
-        #     print("#" * 20)
     finally:
         connection.close()
 
